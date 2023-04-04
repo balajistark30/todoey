@@ -51,27 +51,39 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20.0),
                       topRight: Radius.circular(20.0))),
-              child: ListView(
-                children: const [
-                  ListTile(
-                    title: Text('This is a task'),
-                    trailing: Checkbox(value: false, onChanged: null),
-                  ),
-                  ListTile(
-                    title: Text('This is a task'),
-                    trailing: Checkbox(value: false, onChanged: null),
-                  ),
-                ],
-              ),
+              child: TasksList(),
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class TasksList extends StatelessWidget {
+  const TasksList({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: const [
+        ListTile(
+          title: Text('This is a task'),
+          trailing: Checkbox(value: false, onChanged: null),
+        ),
+        ListTile(
+          title: Text('This is a task'),
+          trailing: Checkbox(value: false, onChanged: null),
+        ),
+      ],
     );
   }
 }
