@@ -6,14 +6,15 @@ class TaskTile extends StatefulWidget {
 }
 
 class _TaskTitleState extends State<TaskTile> {
-  bool isChecked = false;
+  bool isChecked = true;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
         'This is a task',
-        style: TextStyle(decoration: TextDecoration.lineThrough),
+        style: TextStyle(
+            decoration: isChecked ? TextDecoration.lineThrough : null),
       ),
       trailing: TaskCheckbox(isChecked),
     );
