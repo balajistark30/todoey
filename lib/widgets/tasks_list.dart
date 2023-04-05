@@ -8,15 +8,19 @@ class TasksList extends StatefulWidget {
 }
 
 class _TaskListState extends State<TasksList> {
-  List<Task> tasks = [];
+  List<Task> tasks = [
+    Task('Buy Milk', false),
+    Task('Buy eggs', false),
+    Task('Buy bread', false)
+  ];
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        TaskTile(),
-        TaskTile(),
-        TaskTile(),
+        TaskTile(tasks[0].isDone, tasks[0].name),
+        TaskTile(tasks[1].isDone, tasks[1].name),
+        TaskTile(tasks[2].isDone, tasks[2].name),
       ],
     );
   }
