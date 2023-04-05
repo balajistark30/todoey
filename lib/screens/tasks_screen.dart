@@ -28,7 +28,12 @@ class _TaskScreenState extends State<TasksScreen> {
                       child: Container(
                     padding: EdgeInsets.only(
                         bottom: MediaQuery.of(context).viewInsets.bottom),
-                    child: AddTaskScreen(),
+                    child: AddTaskScreen((newTaskTitle) {
+                      setState(() {
+                        tasks.add(Task(newTaskTitle, false));
+                      });
+                      Navigator.pop(context);
+                    }),
                   )));
         },
         backgroundColor: Colors.lightGreen,
@@ -42,7 +47,7 @@ class _TaskScreenState extends State<TasksScreen> {
                 top: 60.0, left: 30.0, right: 30.0, bottom: 30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 CircleAvatar(
                   backgroundColor: Colors.white,
                   radius: 30.0,
@@ -64,7 +69,7 @@ class _TaskScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '12 Tasks',
+                  '${tasks.length} Tasks',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
