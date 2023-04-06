@@ -47,7 +47,10 @@ class AddTaskScreen extends StatelessWidget {
                     .addTask(newTaskTitle);
                 Navigator.pop(context);
               },
-              child: Text('Add'),
+              child: Text(
+                'Add',
+                style: TextStyle(fontSize: 25.0),
+              ),
             ),
           ],
         ),
