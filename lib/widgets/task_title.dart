@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
 
 class TaskTile extends StatelessWidget {
-  const TaskTile({
-    super.key,
-  });
+  final bool isChecked;
+  final String taskTitle;
+  final Function(bool?) checkboxCallback;
+  final Function() longPressCallback;
+
+  TaskTile(
+      {required this.isChecked,
+      required this.taskTitle,
+      required this.checkboxCallback,
+      required this.longPressCallback});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text('This is a task'),
-      trailing: Checkbox(value: false, onChanged: null),
+      onLongPress: longPressCallback,
+      title: Text(
+        taskTitle,
+        style: TextStyle(
+            fontSize: 20.0,
+            decoration: isChecked ? TextDecoration.lineThrough : null),
+      ),
+      trailing: Checkbox(
+        value: isChecked,
+        onChanged: checkboxCallback,
+        activeColor: Colors.lightGreen,
+      ),
     );
   }
 }
