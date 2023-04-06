@@ -7,4 +7,8 @@ class TaskData extends ChangeNotifier {
     Task('Buy eggs', false),
     Task('Buy bread', false)
   ];
+
+  int get taskCount {
+    return tasks.length;
+  }
 }
